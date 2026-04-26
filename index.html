@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Dark Souls Trilogy Bundle</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #0b1220;
+  color: #fff;
+}
+
+/* TOP BAR */
+.topbar {
+  background: #171a21;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #2a475e;
+}
+
+.logo {
+  font-size: 18px;
+  font-weight: bold;
+  color: #66c0f4;
+}
+
+/* HERO */
+.hero {
+  padding: 50px 30px;
+  background: linear-gradient(135deg, #1b2838, #0b1220);
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: 32px;
+  color: #fff;
+}
+
+.hero p {
+  color: #b8c7d9;
+}
+
+/* GRID */
+.container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  padding: 30px;
+}
+
+/* GAME CARD */
+.card {
+  background: #1b2838;
+  border-radius: 10px;
+  display: flex;
+  overflow: hidden;
+  transition: 0.2s;
+  border: 1px solid #2a475e;
+}
+
+.card:hover {
+  transform: scale(1.01);
+  border-color: #66c0f4;
+}
+
+.card img {
+  width: 260px;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 20px;
+  flex: 1;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.desc {
+  color: #b8c7d9;
+  margin-top: 8px;
+  font-size: 14px;
+}
+
+.price {
+  margin-top: 10px;
+  color: #66c0f4;
+  font-weight: bold;
+}
+
+/* BUTTONS */
+button {
+  background: #66c0f4;
+  border: none;
+  padding: 10px 14px;
+  margin-top: 12px;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 4px;
+}
+
+button:hover {
+  background: #8ad7ff;
+}
+
+/* BUNDLE BAR */
+.bundle {
+  margin: 0 30px 30px;
+  background: #1b2838;
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid #2a475e;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.bundle h2 {
+  margin: 0;
+  color: #66c0f4;
+}
+
+/* MODAL */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.7);
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: #1b2838;
+  padding: 25px;
+  width: 500px;
+  border-radius: 10px;
+  border: 1px solid #2a475e;
+}
+</style>
+</head>
+
+<body>
+
+<div class="topbar">
+  <div class="logo">Game Store</div>
+  <div>Dark Souls Trilogy Collection</div>
+</div>
+
+<div class="hero">
+  <h1>Dark Souls Trilogy Bundle</h1>
+  <p>Learn coding logic through pain, repetition, recursion, and boss-level debugging.</p>
+</div>
+
+<!-- GAME LIST -->
+
+<div class="container">
+
+  <!-- DS2 -->
+  <div class="card">
+    <img src="https://cdn.akamai.steamstatic.com/steam/apps/335300/header.jpg" alt="">
+    <div class="card-content">
+      <div class="title">DARK SOULS II: Scholar of the First Sin</div>
+      <div class="desc">Learn loops and adaptive logic through relentless enemy scaling systems.</div>
+      <div class="price">$19.99</div>
+
+      <button onclick="openLink('https://store.steampowered.com/app/335300/DARK_SOULS_II_Scholar_of_the_First_Sin/')">
+        View on Steam
+      </button>
+    </div>
+  </div>
+
+  <!-- DS REMASTERED -->
+  <div class="card">
+    <img src="https://cdn.akamai.steamstatic.com/steam/apps/570940/header.jpg" alt="">
+    <div class="card-content">
+      <div class="title">DARK SOULS: REMASTERED</div>
+      <div class="desc">Master foundational systems: variables, stamina management, and world state persistence.</div>
+      <div class="price">$19.99</div>
+
+      <button onclick="openLink('https://store.steampowered.com/app/570940/DARK_SOULS_REMASTERED/')">
+        View on Steam
+      </button>
+    </div>
+  </div>
+
+  <!-- DS3 DELUXE -->
+  <div class="card">
+    <img src="https://cdn.akamai.steamstatic.com/steam/apps/374320/header.jpg" alt="">
+    <div class="card-content">
+      <div class="title">DARK SOULS III Deluxe Edition</div>
+      <div class="desc">Advanced recursion, timing systems, and final boss-level complexity simulation.</div>
+      <div class="price">$42.49</div>
+
+      <button onclick="openLink('https://store.steampowered.com/sub/94174/')">
+        View Deluxe on Steam
+      </button>
+    </div>
+  </div>
+
+</div>
+
+<!-- BUNDLE -->
+<div class="bundle">
+  <h2>Total Bundle Price: $82.47</h2>
+  <button onclick="openModal()">Purchase Full Trilogy</button>
+</div>
+
+<!-- MODAL -->
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <h2>Bundle Checkout</h2>
+    <p>
+      You are purchasing the complete Dark Souls Trilogy Learning Bundle for <b>$82.47</b>.
+      <br><br>
+      Includes:
+      <br>• Dark Souls Remastered
+      <br>• Dark Souls II: Scholar of the First Sin
+      <br>• Dark Souls III Deluxe Edition
+    </p>
+
+    <button onclick="openLink('https://store.steampowered.com/')">Proceed to Steam</button>
+    <button onclick="closeModal()">Close</button>
+  </div>
+</div>
+
+<script>
+
+function openLink(url) {
+  window.open(url, "_blank");
+}
+
+function openModal() {
+  document.getElementById("modal").style.display = "flex";
+}
+
+function closeModal() {
+  document.getElementById("modal").style.display = "none";
+}
+
+</script>
+
+</body>
+</html>
